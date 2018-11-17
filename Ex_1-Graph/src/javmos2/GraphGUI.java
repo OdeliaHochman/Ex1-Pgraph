@@ -239,32 +239,16 @@ public final class GraphGUI {
   		
   	}
     
-         /*public double AreaGraph(int x0, int x1, double eps) 
-         {
-
-     		double AreaRectangle=0;
-     		double xNum=x0;
-     		double Area= Math.abs((x1-x0)/eps);
-     		if(x0>x1) 
-     		{
-     			return 0;
-     		}
-     		
-     		for(int i=0;i<Area;i++)
-     		{
-     			if(this.f(xNum)>0)
-     			{
-     			AreaRectangle+=eps*f(xNum);
-     			}
-     			xNum+=eps;
-     			
-         }
- */
+      
       public static void main(String[] args) {
          
       	  Polynom p= new Polynom("5+2x^3-x");
-      	    Polynom p1= new Polynom("0.2x^4-1.5x^3+3.0x^2-x+5");
-      	     Graph(p1.toString());
+      	  Polynom p1= new Polynom("0.2x^4-1.5x^3+3.0x^2-x-5");
+      	  Graph(p1.toString());
+          double area=p1.AreaGraphUpX(-2, 6, 0.01);
+      	  System.out.println("Area="+ area);
+          
+          
       		   
          
       }
