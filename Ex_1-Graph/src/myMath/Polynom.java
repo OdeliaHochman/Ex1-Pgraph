@@ -660,6 +660,59 @@ public class Polynom implements Polynom_able{
 		return ARround;
 	}
 	
+	   public double AreaGraphUnderX(int x0, int x1, double eps) 
+       {
+
+		    double AreaRectangle=0;
+			double xCurr=x0;
+			double yCurr = 0;
+			double nAreas= Math.abs((x1-x0)/eps);
+			if(x0>x1) 
+			{
+				return 0;
+			}
+			
+			for(int i=0;i<nAreas;i++)
+			{
+				yCurr = this.f(xCurr);
+				if(yCurr<0)
+				{
+				  AreaRectangle+=eps*yCurr;
+				}
+				xCurr+=eps;
+			}
+			return AreaRectangle;
+       }
+
+		/**
+		 * the function create a deep copy of this Polynum
+		 * @param the function get two point x0,x1 and eps
+		 * @return area of function up x exist 
+		 */
+   		 public double AreaGraphUpX(int x0, int x1, double eps) 
+         {
+
+   			double AreaRectangle=0;
+ 			double xCurr=x0;
+ 			double yCurr = 0;
+ 			double nAreas= Math.abs((x1-x0)/eps);
+ 			if(x0>x1) 
+ 			{
+ 				return 0;
+ 			}
+ 			
+ 			for(int i=0;i<nAreas;i++)
+ 			{
+ 				yCurr = this.f(xCurr);
+ 				if(yCurr>0)
+ 				{
+ 				  AreaRectangle+=eps*yCurr;
+ 				}
+ 				xCurr+=eps;
+ 			}
+ 			return AreaRectangle;
+         }
+	
 	public void gui() 
 	{
 		GraphGUI jG=new GraphGUI(this.toString());
